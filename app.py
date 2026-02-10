@@ -5,7 +5,7 @@ import openpyxl
 from io import BytesIO
 import re
 
-openai.api_key = "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"  
+openai.api_key = "sk-your-openai-api-key-her"
 
 # Standard line items with synonyms
 standard_items = {
@@ -128,4 +128,5 @@ if uploaded_files:
                     mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
                 )
         else:
+
             st.error("No text extracted from PDF.")
