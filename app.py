@@ -2,13 +2,11 @@ import streamlit as st
 import fitz  # PyMuPDF
 import json
 import os
-from dotenv import load_dotenv
 from google import genai
 from google.genai import types
 
-load_dotenv()
-
-client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
+model = genai.GenerativeModel("gemini-1.5-flash")
 
 st.set_page_config(page_title="Earnings Call Analyzer", layout="wide")
 st.title("📝 Earnings Call & Management Summary Tool")
@@ -126,3 +124,4 @@ Transcript:
         mime="application/json",
         use_container_width=True
     )
+
