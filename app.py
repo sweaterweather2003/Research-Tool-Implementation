@@ -1,16 +1,15 @@
 import streamlit as st
 import fitz  # PyMuPDF
 import json
-import os
 from google import genai
 from google.genai import types
 
-genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
-model = genai.GenerativeModel("gemini-1.5-flash")
-
 st.set_page_config(page_title="Earnings Call Analyzer", layout="wide")
 st.title("📝 Earnings Call & Management Summary Tool")
-st.markdown("**Call Analyzer")
+st.markdown("**Call Analyzer**")
+
+# Initialize client with API key from Streamlit secrets
+client = genai.Client(api_key=st.secrets["GEMINI_API_KEY"])
 
 uploaded_files = st.file_uploader(
     "Upload Earnings Call Transcripts or MD&A (PDFs)",
@@ -124,4 +123,5 @@ Transcript:
         mime="application/json",
         use_container_width=True
     )
+
 
