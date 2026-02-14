@@ -1,3 +1,3 @@
 streamlit
 pymupdf
-google-generativeai
+google-genai
